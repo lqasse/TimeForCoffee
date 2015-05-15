@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="8dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:id="@+id/actionListItem"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/duration"
+        android:layout_gravity="top"
+        android:textColor="@color/secondary_text"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:layout_gravity="center_vertical"
+        android:text="Title"
+        android:textColor="@color/primary_text"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:id="@+id/description"
+        android:layout_gravity="center_vertical"
+        android:textColorHighlight="@color/secondary_text"
+        android:layout_below="@+id/duration"
+        android:layout_alignStart="@+id/title" />
+
+</RelativeLayout>

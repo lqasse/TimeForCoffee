@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/descriptionField"
+        android:layout_below="@+id/titleField"
+        android:hint="Description"
+        android:linksClickable="false"
+        android:lines="2"
+        android:gravity="top"
+        android:layout_alignLeft="@+id/titleField"
+        android:layout_alignRight="@+id/titleField" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleField"
+        android:hint="Title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_toLeftOf="@+id/durationField" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/durationField"
+        android:hint="Seconds"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignBottom="@+id/titleField"
+        android:layout_alignTop="@+id/titleField" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/addButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_alignEnd="@+id/titleField"
+        android:layout_below="@+id/durationField"
+        android:layout_alignRight="@+id/durationField"
+        android:layout_alignLeft="@+id/durationField"
+        android:layout_alignBottom="@+id/descriptionField" />
+
+</RelativeLayout>
+
+

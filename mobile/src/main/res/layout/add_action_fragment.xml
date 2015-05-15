@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleField"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:hint="Title"
+        android:layout_toStartOf="@+id/durationField" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/descriptionField"
+        android:layout_below="@+id/titleField"
+        android:layout_centerHorizontal="true"
+        android:hint="Description"
+        android:linksClickable="false"
+        android:lines="2"
+        android:gravity="top" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/durationField"
+        android:hint="Seconds"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/addButton"
+        android:layout_below="@+id/descriptionField"
+        android:layout_alignParentEnd="true"
+        style="?android:attr/borderlessButtonStyle"/>
+
+</RelativeLayout>

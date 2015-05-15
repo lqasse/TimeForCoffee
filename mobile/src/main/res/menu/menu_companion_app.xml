@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".CompanionApp">
+
+    <item android:id="@+id/action_sync" android:title="Sync"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_start_app" android:title="Start app"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+
+</menu>
