@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 
-import no.lqasse.timeforcoffee.models.TimerSet;
+import no.lqasse.timeforcoffee.Models.TimerSet;
 
 public class MainActivity extends TimerIntentReceiver implements DataStorageManager.Observer{
     private static final String LOG_IDENTIFIER = "MainActivity";

@@ -7,7 +7,8 @@
     android:keepScreenOn="true"
     android:gravity="center_horizontal"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    android:tag="SQUARE">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,7 +19,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-light"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:gravity="bottom" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,12 +28,13 @@
         android:id="@+id/timerfragment_title"
         android:text="title"
         android:layout_below="@+id/timerfragment_count"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
         android:gravity="center_horizontal"
         android:textSize="30dp"
         android:fontFamily="sans-serif-light"
-        android:textColor="@color/primary_text" />
+        android:textColor="@color/primary_text"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

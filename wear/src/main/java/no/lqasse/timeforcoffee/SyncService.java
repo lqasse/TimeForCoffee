@@ -6,12 +6,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
-import org.json.JSONException;
-
 import java.util.ArrayList;
-import java.util.Collections;
 
-import no.lqasse.timeforcoffee.models.TimerSet;
+import no.lqasse.timeforcoffee.Models.TimerSet;
 
 /**
  * Created by lassedrevland on 07.05.15.

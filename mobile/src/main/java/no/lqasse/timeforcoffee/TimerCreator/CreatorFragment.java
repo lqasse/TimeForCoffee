@@ -13,21 +13,16 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.melnykov.fab.FloatingActionButton;
-
-import org.json.JSONException;
 
 import java.util.ArrayList;
 
-import no.lqasse.timeforcoffee.ActionListAdapter;
+import no.lqasse.timeforcoffee.Utilities.ActionListAdapter;
 import no.lqasse.timeforcoffee.CompanionAppActivity;
-import no.lqasse.timeforcoffee.DataStorageManager;
+import no.lqasse.timeforcoffee.Utilities.DataStorageManager;
 import no.lqasse.timeforcoffee.PreferencesManager;
 import no.lqasse.timeforcoffee.R;
-import no.lqasse.timeforcoffee.models.Action;
-import no.lqasse.timeforcoffee.models.TimerSet;
+import no.lqasse.timeforcoffee.Models.Action;
+import no.lqasse.timeforcoffee.Models.TimerSet;
 
 /**
  * Created by lassedrevland on 04.05.15.
@@ -98,7 +93,7 @@ public class CreatorFragment extends Fragment  implements AddActionDialog.Listen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View layout = inflater.inflate(R.layout.creator_fragment,container,false);
+        View layout = inflater.inflate(R.layout.fragment_creator,container,false);
         View footer = inflater.inflate(R.layout.action_list_footer,null);
         View header = inflater.inflate(R.layout.action_list_header, null);
 

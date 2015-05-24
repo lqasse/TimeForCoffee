@@ -16,7 +16,9 @@ import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import no.lqasse.timeforcoffee.models.TimerSet;
+import no.lqasse.timeforcoffee.Utilities.DataStorageManager;
+import no.lqasse.timeforcoffee.Utilities.TimerListAdapter;
+import no.lqasse.timeforcoffee.Models.TimerSet;
 
 /**
  * Created by lassedrevland on 04.05.15.
@@ -74,7 +76,7 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        layout = inflater.inflate(R.layout.list_fragment,container,false);
+        layout = inflater.inflate(R.layout.fragment_list,container,false);
         timerList = (ListView) layout.findViewById(R.id.timerList);
         fab = (FloatingActionButton) layout.findViewById(R.id.fab);
         adaper = new TimerListAdapter(activity,timers);

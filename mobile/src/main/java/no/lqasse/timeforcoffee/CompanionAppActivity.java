@@ -4,18 +4,14 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.util.Log;
 
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.json.JSONException;
-
-import java.util.ArrayList;
-
 import no.lqasse.timeforcoffee.TimerCreator.CreatorFragment;
-import no.lqasse.timeforcoffee.models.TimerSet;
+import no.lqasse.timeforcoffee.Utilities.DataStorageManager;
+import no.lqasse.timeforcoffee.Utilities.WearHandler;
 
 
 public class CompanionAppActivity extends Activity implements

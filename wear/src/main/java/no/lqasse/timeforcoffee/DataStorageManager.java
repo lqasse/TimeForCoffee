@@ -2,7 +2,6 @@ package no.lqasse.timeforcoffee;
 
 import android.content.Context;
 import android.os.FileObserver;
-import android.os.Handler;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -16,7 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import no.lqasse.timeforcoffee.models.TimerSet;
+import no.lqasse.timeforcoffee.Models.TimerSet;
 
 /**
  * Created by lassedrevland on 13.05.15.

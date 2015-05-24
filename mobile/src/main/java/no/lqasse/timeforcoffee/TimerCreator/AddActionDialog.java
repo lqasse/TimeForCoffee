@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import no.lqasse.timeforcoffee.R;
-import no.lqasse.timeforcoffee.models.Action;
+import no.lqasse.timeforcoffee.Models.Action;
 
 /**
  * Created by lassedrevland on 10.05.15.

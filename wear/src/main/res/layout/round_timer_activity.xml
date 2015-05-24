@@ -1,49 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/icons"
     android:id="@+id/timer_layout"
     android:keepScreenOn="true"
-    android:gravity="center_horizontal"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    android:tag="ROUND">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/timerfragment_count"
         android:textSize="50dp"
         android:textColor="@color/primary_text"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-light"
- />
+        android:gravity="bottom"
+        android:background="@null"
+        android:includeFontPadding="false"
+        android:layout_marginTop="13dp"
+        android:visibility="visible" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timerfragment_next_timers"
-        android:layout_below="@+id/timerfragment_description"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal"
-        android:textSize="10dp"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/secondary_text" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:id="@+id/timerfragment_title"
         android:text="title"
         android:layout_below="@+id/timerfragment_count"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
         android:gravity="center_horizontal"
         android:textSize="30dp"
         android:fontFamily="sans-serif-light"
-        android:textColor="@color/primary_text" />
+        android:textColor="@color/primary_text"
+        android:layout_centerHorizontal="true"
+        android:includeFontPadding="false"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,10 +44,25 @@
         android:id="@+id/timerfragment_description"
         android:text="description"
         android:layout_below="@+id/timerfragment_title"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
         android:gravity="center_horizontal"
         android:textSize="20dp"
         android:fontFamily="sans-serif-light"
-        android:textColor="@color/secondary_text" />
+        android:textColor="@color/secondary_text"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timerfragment_next_timers"
+        android:layout_below="@+id/timerfragment_description"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:gravity="center_horizontal"
+        android:textSize="10dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/secondary_text"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
