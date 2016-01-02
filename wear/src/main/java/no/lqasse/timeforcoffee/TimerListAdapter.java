@@ -36,8 +36,8 @@ public class TimerListAdapter extends ArrayAdapter<TimerSet> {
 
 
         title.setText(timers.get(position).getTitle());
-        actions.setText(timers.get(position).getAllActionsString());
-        details.setText(timers.get(position).getDetailsSummary());
+        actions.setText(timers.get(position).getAllActions());
+        details.setText(timers.get(position).getSummary());
 
         return layout;
     }

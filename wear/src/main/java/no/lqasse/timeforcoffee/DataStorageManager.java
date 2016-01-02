@@ -21,8 +21,7 @@ import no.lqasse.timeforcoffee.Models.TimerSet;
  * Created by lassedrevland on 13.05.15.
  */
 public class DataStorageManager {
-    private final static String FILENAME = "timers.txt";
-    private static DataStorageManager instance;
+    private final static String TIMERS_FILENAME = "timers.txt";
     private FileObserver fileObserver;
 
     private ArrayList<TimerSet> timers = new ArrayList<>();
@@ -30,43 +29,22 @@ public class DataStorageManager {
     File file;
     private Context context;
 
-    public static DataStorageManager getInstance(){
-        if (instance == null){
-            instance = new DataStorageManager();
-            return instance;
-        } else{
-            return instance;
-        }
-
-    }
-    public DataStorageManager(){
-        
-    }
-
     public void observe(final Context context){
         fileObserver = new FileObserver(context.getFilesDir().getPath()) {
             @Override
             public void onEvent(int i, String s) {
                 if (i == FileObserver.MODIFY){
-
                     ((Observer) DataStorageManager.this.context).onDataChanged();
                 }
-
             }
         };
-
         fileObserver.startWatching();
     }
 
     public void loadFile(Context context){
         this.context = context;
-        file = new File(context.getFilesDir(), FILENAME);
+        file = new File(context.getFilesDir(), TIMERS_FILENAME);
     }
-
-    public ArrayList<TimerSet> getBufferedTimers(){
-        return this.timers;
-    }
-
 
     public void write(ArrayList<TimerSet> timers){
         if (context == null){
@@ -75,28 +53,20 @@ public class DataStorageManager {
         try {
             JSONArray array = new JSONArray();
             FileOutputStream outputStream = new FileOutputStream(file);
-
-
             for (TimerSet timer : timers){
                 array.put(new JSONObject(timer.getJSON()));
             }
-
-
-
             String jsonArray = array.toString();
             outputStream.write(jsonArray.getBytes());
-
             outputStream.close();
-
 
         } catch (IOException e){
             e.printStackTrace();
         } catch (JSONException e){
             e.printStackTrace();
         }
-
-
     }
+
     public void write(){
         write(this.timers);
     }
@@ -118,21 +88,15 @@ public class DataStorageManager {
 
             for (int i = 0;i<data.length();i++){
              try {
-
                  timers.add(new TimerSet(data.getJSONObject(i)));
-
              } catch (JSONException e){
                  Log.d("JSONException", data.getJSONObject(i).toString() + " could not be parsed");
                  e.printStackTrace();
              }
-
             }
-
-
 
         }catch (IOException e){
             e.printStackTrace();
-
         } catch (JSONException e){
             e.printStackTrace();
         }
@@ -152,7 +116,6 @@ public class DataStorageManager {
         timers.remove(oldTimer);
         timers.add(newTimer);
         write();
-
     }
 
     public void delete(TimerSet timer){

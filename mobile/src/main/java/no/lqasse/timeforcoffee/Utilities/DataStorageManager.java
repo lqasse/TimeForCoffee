@@ -21,12 +21,14 @@ import no.lqasse.timeforcoffee.Models.TimerSet;
  * Created by lassedrevland on 13.05.15.
  */
 public class DataStorageManager {
-    private final static String FILENAME = "timers.txt";
+    private final static String TIMERS_FILE = "timers.txt";
+    private final static String SETTINGS_FILE = "settings.txt";
     private static DataStorageManager instance;
 
     private ArrayList<TimerSet> timers = new ArrayList<>();
 
-    File file;
+    File timers_file;
+    File settings_file;
     private Context context;
 
     public static DataStorageManager getInstance(){
@@ -38,13 +40,12 @@ public class DataStorageManager {
         }
 
     }
-    public DataStorageManager(){
 
-    }
 
-    public void loadFile(Context context){
+    public void load(Context context){
         this.context = context;
-        file = new File(context.getFilesDir(), FILENAME);
+        timers_file = new File(context.getFilesDir(), TIMERS_FILE);
+
     }
 
     public ArrayList<TimerSet> getBufferedTimers(){
@@ -52,20 +53,16 @@ public class DataStorageManager {
     }
 
 
-    public void write(ArrayList<TimerSet> timers){
+    public void writeData(ArrayList<TimerSet> timers){
         if (context == null){
             return;
         }
         try {
             JSONArray array = new JSONArray();
-            FileOutputStream outputStream = new FileOutputStream(file);
-
-
+            FileOutputStream outputStream = new FileOutputStream(timers_file);
             for (TimerSet timer : timers){
                 array.put(new JSONObject(timer.getJSON()));
             }
-
-
 
             String jsonArray = array.toString();
             outputStream.write(jsonArray.getBytes());
@@ -81,11 +78,13 @@ public class DataStorageManager {
 
 
     }
-    public void write(){
-        write(this.timers);
+    public void writeData(){
+        writeData(this.timers);
     }
 
-    public void refresh(ArrayList<TimerSet> timers){
+
+
+    public void load(ArrayList<TimerSet> timers){
         this.timers.clear();
         timers.clear();
         if (context == null){
@@ -93,7 +92,7 @@ public class DataStorageManager {
         }
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+            BufferedReader br = new BufferedReader(new FileReader(timers_file));
             String result = br.readLine();
             br.close();
             Log.d("DataStorageManager", result);
@@ -131,19 +130,19 @@ public class DataStorageManager {
 
     public void put(TimerSet timer){
         timers.add(timer);
-        write();
+        writeData();
     }
 
     public void replace(TimerSet oldTimer, TimerSet newTimer){
         timers.remove(oldTimer);
         timers.add(newTimer);
-        write();
+        writeData();
 
     }
 
     public void delete(TimerSet timer){
         timers.remove(timer);
-        write();
+        writeData();
     }
 
 

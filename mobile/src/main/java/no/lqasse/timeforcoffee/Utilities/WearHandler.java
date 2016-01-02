@@ -90,8 +90,6 @@ public class WearHandler implements
             } catch (JSONException e){
                 e.printStackTrace();
             }
-
-
         }
 
         PutDataMapRequest putDataMapReq = PutDataMapRequest.create(DATAMAP_DIRECTORY);
