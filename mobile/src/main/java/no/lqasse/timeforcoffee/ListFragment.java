@@ -23,7 +23,7 @@ import no.lqasse.timeforcoffee.Models.TimerSet;
 /**
  * Created by lassedrevland on 04.05.15.
  */
-public class ListFragment extends Fragment implements DeleteDialog.Listener, PreferencesManager.Listener {
+public class ListFragment extends Fragment implements DeleteDialog.Listener {
 
     private View layout;
     private ListView timerList;
@@ -31,32 +31,24 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
     private TimerListAdapter adaper;
     private CompanionAppActivity activity;
     private ArrayList<TimerSet> timers = new ArrayList<>();
-
     private DataStorageManager dataStorageManager;
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.activity = (CompanionAppActivity) activity;
-
         dataStorageManager = DataStorageManager.getInstance();
-        dataStorageManager.refresh(timers);
-
-
-
+        dataStorageManager.load(timers);
     }
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_companion_app, menu);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()){
             case R.id.action_sync:
                 activity.syncData(false);
@@ -64,14 +56,11 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
             case R.id.action_start_app:
                 activity.syncData(true);
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
-
         }
     }
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -83,17 +72,12 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
         timerList.setAdapter(adaper);
         adaper.notifyDataSetChanged();
 
-
-
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.onNewTimer(layout);
             }
         });
-
-
 
         timerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -113,9 +97,6 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
             }
         });
 
-
-
-
         return layout;
     }
 
@@ -126,14 +107,10 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
         void onListItemClick(int index);
     }
 
-
     @Override
     public void onDestroyView() {
-
         ((ViewGroup) layout).removeAllViews();
         //7preferencesManager.unRegisterListener(this);
-
-
 
         super.onDestroyView();
     }
@@ -144,12 +121,6 @@ public class ListFragment extends Fragment implements DeleteDialog.Listener, Pre
        timers.clear();
         timers.addAll(dataStorageManager.getBufferedTimers());
         adaper.notifyDataSetChanged();
-
     }
 
-    @Override
-    public void dataChanged() {
-        adaper.notifyDataSetChanged();
-        activity.syncData(false);
-    }
 }

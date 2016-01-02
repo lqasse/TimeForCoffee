@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import no.lqasse.timeforcoffee.Utilities.ActionListAdapter;
 import no.lqasse.timeforcoffee.CompanionAppActivity;
 import no.lqasse.timeforcoffee.Utilities.DataStorageManager;
-import no.lqasse.timeforcoffee.PreferencesManager;
 import no.lqasse.timeforcoffee.R;
 import no.lqasse.timeforcoffee.Models.Action;
 import no.lqasse.timeforcoffee.Models.TimerSet;
@@ -49,7 +48,6 @@ public class CreatorFragment extends Fragment  implements AddActionDialog.Listen
     private CompanionAppActivity activity;
 
     private ActionListAdapter adapter;
-    private PreferencesManager preferencesManager;
     private DataStorageManager dataStorageManager;
 
 

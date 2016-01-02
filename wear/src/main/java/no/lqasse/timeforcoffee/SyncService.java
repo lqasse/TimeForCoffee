@@ -15,31 +15,21 @@ import no.lqasse.timeforcoffee.Models.TimerSet;
  */
 public class SyncService extends Service{
     private DataStorageManager dataStorageManager;
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-
         if (intent.getExtras() != null){
             loadExtras(intent);
 
             dataStorageManager = new DataStorageManager();
             dataStorageManager.loadFile(this);
             dataStorageManager.write(timers);
-
-
         }
         return super.onStartCommand(intent, flags, startId);
-        
-
     }
-
-
 
     protected ArrayList<TimerSet> timers = new ArrayList<>();
 
     protected void loadExtras(Intent intent) {
-
         timers.clear();
         Bundle extras = intent.getExtras();
 
@@ -50,9 +40,7 @@ public class SyncService extends Service{
     @Override
     public IBinder onBind(Intent intent) {
         return null;
-
     }
-
 }
 
 
