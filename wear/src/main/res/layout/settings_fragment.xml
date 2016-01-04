@@ -12,4 +12,5 @@
         android:id="@+id/vibrate"
         android:layout_gravity="center"
         android:checked="true" />
+
 </LinearLayout>

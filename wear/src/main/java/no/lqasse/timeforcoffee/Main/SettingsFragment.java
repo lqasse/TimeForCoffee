@@ -34,14 +34,17 @@ public class SettingsFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         layout = inflater.inflate(R.layout.settings_fragment, container, false);
         vibrate = (CheckBox) layout.findViewById(R.id.vibrate);
+
         vibrate.setChecked(preferences.vibrate);
         vibrate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 preferences.vibrate = isChecked;
-                Preferences.set(preferences,getActivity());
+                Preferences.set(preferences, getActivity());
             }
         });
+
+
         return layout;
     }
 

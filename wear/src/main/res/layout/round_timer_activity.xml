@@ -7,63 +7,96 @@
     android:keepScreenOn="true"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:tag="ROUND">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/timerfragment_count"
-        android:textSize="50dp"
-        android:textColor="@color/primary_text"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-light"
-        android:gravity="bottom"
-        android:background="@null"
-        android:includeFontPadding="false"
-        android:layout_marginTop="13dp"
-        android:visibility="visible" />
+    android:tag="ROUND"
+    android:clipToPadding="false">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/timerfragment_title"
+        android:id="@+id/timer_activity_count"
+        android:textSize="20dp"
+        android:textColor="@color/primary_text"
+        android:fontFamily="sans-serif-light"
+        android:includeFontPadding="false"
+        android:visibility="visible"
+        android:text="00"
+        android:background="@drawable/timer_duration_background"
+        android:gravity="center_vertical|right"
+        android:paddingRight="3dp"
+        android:typeface="sans"
+        android:paddingLeft="3dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:translationZ="3dp"
+        android:elevation="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timer_activity_title"
         android:text="title"
-        android:layout_below="@+id/timerfragment_count"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="false"
         android:gravity="center_horizontal"
         android:textSize="30dp"
         android:fontFamily="sans-serif-light"
         android:textColor="@color/primary_text"
+        android:includeFontPadding="false"
+        android:layout_above="@+id/timer_activity_count"
         android:layout_centerHorizontal="true"
-        android:includeFontPadding="false"/>
+        android:padding="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/timerfragment_description"
+        android:id="@+id/timer_activity_description"
         android:text="description"
-        android:layout_below="@+id/timerfragment_title"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="false"
         android:gravity="center_horizontal"
         android:textSize="20dp"
         android:fontFamily="sans-serif-light"
         android:textColor="@color/secondary_text"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/timerfragment_next_timers"
-        android:layout_below="@+id/timerfragment_description"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="false"
+        android:id="@+id/timer_activity_action1"
+        android:layout_below="@+id/timer_activity_description"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:gravity="center_horizontal"
-        android:textSize="10dp"
+        android:textSize="14dp"
         android:fontFamily="sans-serif-light"
         android:textColor="@color/secondary_text"
+        android:text="next action"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timer_activity_action2"
+        android:gravity="center_horizontal"
+        android:textSize="11dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/secondary_text"
+        android:text="2nd action"
+        android:layout_below="@+id/timer_activity_action1"
         android:layout_centerHorizontal="true"
-        android:maxLines="10" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timer_activity_action3"
+        android:gravity="center_horizontal"
+        android:textSize="9dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/secondary_text"
+        android:text="3rd action"
+        android:layout_below="@+id/timer_activity_action2"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

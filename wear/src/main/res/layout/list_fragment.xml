@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.wearable.view.WatchViewStub
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/watch_view_stub"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    app:rectLayout="@layout/rect_list_fragment" app:roundLayout="@layout/round_list_fragment"
     tools:context=".MainActivity"
-    tools:deviceIds="wear_round"
-    android:id="@+id/layout"
-    android:background="@color/primary"
-    android:orientation="vertical">
-
-
-    <ListView
-        android:clipToPadding="false"
-        android:paddingTop="40dp"
-        android:paddingBottom="40dp"
-
-        app:layout_box="left|right"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/timerList"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:divider="@null"
-        android:dividerHeight="6dp"/>
-
-</LinearLayout>
+    tools:deviceIds="wear"></android.support.wearable.view.WatchViewStub>

@@ -28,10 +28,7 @@ public class MainActivity extends FragmentActivity implements DataStorageManager
         dataStorageManager = new DataStorageManager();
         dataStorageManager.loadFile(this);
         dataStorageManager.observe(this);
-        final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
-        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
-            @Override
-            public void onLayoutInflated(WatchViewStub watchViewStub) {
+
                 viewPager = (ViewPager) findViewById(R.id.pager);
                 pagerAdapter = new PagerAdapter(getSupportFragmentManager(),MainActivity.this);
                 viewPager.setAdapter(pagerAdapter);
@@ -40,8 +37,7 @@ public class MainActivity extends FragmentActivity implements DataStorageManager
                 } else {
                     dataStorageManager.refresh(timers);
                 }
-            }
-        });
+
     }
 
     @Override
