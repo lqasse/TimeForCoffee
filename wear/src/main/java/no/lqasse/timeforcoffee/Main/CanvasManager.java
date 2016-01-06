@@ -70,12 +70,13 @@ public class CanvasManager {
 
         faceInnerEdge = new Path();
         faceEdge = new Path();
-        if (screenShape == TimerActivity.SCREEN_SHAPE.ROUND){
-            faceInnerEdge.addOval(innerMarkerEdge, Path.Direction.CW);
-            faceEdge.addOval(screenEdge, Path.Direction.CW);
-        } else {
+
+        if (screenShape == TimerActivity.SCREEN_SHAPE.SQUARE){
             faceInnerEdge.addRect(innerMarkerEdge, Path.Direction.CW);
             faceEdge.addRect(screenEdge, Path.Direction.CW);
+        } else {
+            faceInnerEdge.addOval(innerMarkerEdge, Path.Direction.CW);
+            faceEdge.addOval(screenEdge, Path.Direction.CW);
         }
 
     }
@@ -131,13 +132,15 @@ public class CanvasManager {
         }
         canvas.drawPath(allMarkers, primaryPaint);
         drawShadow();
+
     }
 
     public void drawShadow(){
-        if (screenShape == TimerActivity.SCREEN_SHAPE.ROUND){
-            canvas.drawOval(screenEdge,shadow);
-        } else {
+        if (screenShape == TimerActivity.SCREEN_SHAPE.SQUARE){
             canvas.drawRect(screenEdge,shadow);
+        }
+        else {
+            canvas.drawOval(screenEdge, shadow);
         }
     }
 

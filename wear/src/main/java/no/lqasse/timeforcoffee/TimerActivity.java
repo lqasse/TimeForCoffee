@@ -10,8 +10,10 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.os.Vibrator;
 import android.support.wearable.view.WatchViewStub;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowInsets;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
@@ -25,7 +27,7 @@ import no.lqasse.timeforcoffee.Models.TimerSet;
  * Created by lassedrevland on 06.05.15.
  */
 public class TimerActivity extends Activity {
-    public enum SCREEN_SHAPE{ROUND,SQUARE}
+    public enum SCREEN_SHAPE{ROUND,SQUARE,ROUND_CHIN}
     public static final String TIMER_INTENT_KEY = "timer";
     private static final String ROUND_LAYOUT_TAG_IDENTIFIER = "ROUND";
     private static final int LOAD_ANIMATION_FPS = 20;
@@ -56,6 +58,8 @@ public class TimerActivity extends Activity {
     private int currentSecondsLeft;
     private int loadAnimationProgress;
     private int loadMillis;
+
+    private int chinHeight;
 
     private Runnable loadAnimation = new Runnable() {
         @Override
@@ -131,6 +135,14 @@ public class TimerActivity extends Activity {
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub watchViewStub) {
+                stub.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+                    @Override
+                    public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+                        chinHeight = insets.getSystemWindowInsetBottom();
+                        // chinHeight = 30;
+                        return insets;
+                    }
+                });
                 layout = findViewById(R.id.timer_layout);
                 title = (TextView) findViewById(R.id.timer_activity_title);
                 count = (TextView) findViewById(R.id.timer_activity_count);
@@ -175,7 +187,9 @@ public class TimerActivity extends Activity {
 
     private SCREEN_SHAPE getScreenShape(View layout){
         if ((layout.getTag()).equals(ROUND_LAYOUT_TAG_IDENTIFIER)) {
-            return SCREEN_SHAPE.ROUND;
+                return SCREEN_SHAPE.ROUND;
+
+
         } else {
             return SCREEN_SHAPE.SQUARE;
         }

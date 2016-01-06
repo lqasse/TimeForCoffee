@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.wearable.view.WatchViewStub;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -52,6 +54,7 @@ public class ListFragment extends android.support.v4.app.Fragment {
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub watchViewStub) {
+
                 listView = (ListView) layout.findViewById(R.id.timerList);
                 listView.setAdapter(timerListAdapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
