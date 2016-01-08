@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -31,16 +32,19 @@ public class CanvasManager {
     private RectF innerMarkerEdge;
     private Path faceInnerEdge;
     private Path faceEdge;
+    private int chinHeight = 0;
 
-    public CanvasManager(Resources res, Canvas canvas, int layoutHeight, int layoutWidth, TimerActivity.SCREEN_SHAPE screenShape){
+    public CanvasManager(Resources res, Canvas canvas, TimerActivity.SCREEN_SHAPE screenShape, int chinHeight){
         this.resources = res;
         this.canvas = canvas;
-        this.layoutHeight = layoutHeight;
-        this.layoutWidth = layoutWidth;
+        this.layoutHeight = canvas.getHeight();
+        this.layoutWidth = canvas.getWidth();
         this.screenShape = screenShape;
+        this.chinHeight = chinHeight;
         setColors();
         drawBackground();
         createShapes();
+        Log.d("CHIN_CM", Integer.toString(chinHeight));
     }
 
     private void setColors(){
@@ -77,6 +81,15 @@ public class CanvasManager {
         } else {
             faceInnerEdge.addOval(innerMarkerEdge, Path.Direction.CW);
             faceEdge.addOval(screenEdge, Path.Direction.CW);
+
+            if (hasChin(chinHeight)){
+                Path chinInner = new Path();
+                chinInner.addRect(0, layoutHeight - 40, layoutWidth, layoutHeight, Path.Direction.CW);
+                faceInnerEdge.op(chinInner, Path.Op.DIFFERENCE);
+                Path chinEdge = new Path();
+                chinEdge.addRect(0, layoutHeight - 30, layoutWidth, layoutHeight, Path.Direction.CW);
+                faceEdge.op(chinEdge, Path.Op.DIFFERENCE);
+            }
         }
 
     }
@@ -136,16 +149,15 @@ public class CanvasManager {
     }
 
     public void drawShadow(){
-        if (screenShape == TimerActivity.SCREEN_SHAPE.SQUARE){
-            canvas.drawRect(screenEdge,shadow);
-        }
-        else {
-            canvas.drawOval(screenEdge, shadow);
-        }
+        canvas.drawPath(faceEdge, shadow);
     }
 
     public void drawBackground(){
         canvas.drawColor(Color.WHITE);
+    }
+
+    private boolean hasChin(int chinHeight){
+        return chinHeight>0;
     }
 
 

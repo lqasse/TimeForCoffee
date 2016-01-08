@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
+
 import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.Collections;
+
 import no.lqasse.timeforcoffee.DataStorageManager;
 import no.lqasse.timeforcoffee.DatamapListenerService;
 import no.lqasse.timeforcoffee.Models.TimerSet;
@@ -28,15 +30,15 @@ public class MainActivity extends FragmentActivity implements DataStorageManager
         dataStorageManager = new DataStorageManager();
         dataStorageManager.loadFile(this);
         dataStorageManager.observe(this);
+        dataStorageManager.refresh(timers);
 
-                viewPager = (ViewPager) findViewById(R.id.pager);
-                pagerAdapter = new PagerAdapter(getSupportFragmentManager(),MainActivity.this);
-                viewPager.setAdapter(pagerAdapter);
-                if (getIntent().hasExtra("timers")) {
-                    loadExtras(getIntent());
-                } else {
-                    dataStorageManager.refresh(timers);
-                }
+        viewPager = (ViewPager) findViewById(R.id.pager);
+
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager(),MainActivity.this, timers.isEmpty());
+        viewPager.setAdapter(pagerAdapter);
+
+
+
 
     }
 

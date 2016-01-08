@@ -4,4 +4,5 @@
     <string name="hello_square">Hello Square World!</string>
     <string name="vibrate_setting_key">vibrate</string>
     <string name="dial_setting_key">dial</string>
+    <string name="empty_timerlist">There is nothing here yet, create a timer on your phone</string>
 </resources>

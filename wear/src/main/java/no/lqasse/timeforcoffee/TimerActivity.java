@@ -27,7 +27,7 @@ import no.lqasse.timeforcoffee.Models.TimerSet;
  * Created by lassedrevland on 06.05.15.
  */
 public class TimerActivity extends Activity {
-    public enum SCREEN_SHAPE{ROUND,SQUARE,ROUND_CHIN}
+    public enum SCREEN_SHAPE{ROUND,SQUARE}
     public static final String TIMER_INTENT_KEY = "timer";
     private static final String ROUND_LAYOUT_TAG_IDENTIFIER = "ROUND";
     private static final int LOAD_ANIMATION_FPS = 20;
@@ -59,7 +59,8 @@ public class TimerActivity extends Activity {
     private int loadAnimationProgress;
     private int loadMillis;
 
-    private int chinHeight;
+
+    private int chinHeight = 0;
 
     private Runnable loadAnimation = new Runnable() {
         @Override
@@ -139,10 +140,15 @@ public class TimerActivity extends Activity {
                     @Override
                     public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
                         chinHeight = insets.getSystemWindowInsetBottom();
+                        Log.d("CHIN_GET", Integer.toString(chinHeight));
                         // chinHeight = 30;
                         return insets;
                     }
                 });
+
+                stub.requestApplyInsets();
+
+
                 layout = findViewById(R.id.timer_layout);
                 title = (TextView) findViewById(R.id.timer_activity_title);
                 count = (TextView) findViewById(R.id.timer_activity_count);
@@ -174,7 +180,7 @@ public class TimerActivity extends Activity {
                     public void onGlobalLayout() {
                         backgroundBitmap = Bitmap.createBitmap(layout.getWidth(), layout.getHeight(), Bitmap.Config.ARGB_8888);
                         canvas = new Canvas(backgroundBitmap);
-                        canvasManager = new CanvasManager(getResources(),canvas,layout.getHeight(),layout.getWidth(),getScreenShape(layout));
+                        canvasManager = new CanvasManager(getResources(),canvas,getScreenShape(layout),chinHeight);
                         layout.setBackgroundDrawable(new BitmapDrawable(backgroundBitmap));
                         canvasManager.createMarkers(timerSet.getAction(0).getDuration());
                         handler.post(loadAnimation);
@@ -187,9 +193,7 @@ public class TimerActivity extends Activity {
 
     private SCREEN_SHAPE getScreenShape(View layout){
         if ((layout.getTag()).equals(ROUND_LAYOUT_TAG_IDENTIFIER)) {
-                return SCREEN_SHAPE.ROUND;
-
-
+            return SCREEN_SHAPE.ROUND;
         } else {
             return SCREEN_SHAPE.SQUARE;
         }

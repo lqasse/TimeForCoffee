@@ -9,8 +9,8 @@ android {
         applicationId "no.lqasse.timeforcoffee"
         minSdkVersion 21
         targetSdkVersion 22
-        versionCode 3
-        versionName "2.0"
+        versionCode 4
+        versionName "2.1"
     }
     buildTypes {
         release {

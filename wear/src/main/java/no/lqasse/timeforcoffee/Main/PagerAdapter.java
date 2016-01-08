@@ -13,24 +13,33 @@ public class PagerAdapter extends FragmentPagerAdapter {
     private SettingsFragment settingsFragment;
     private ListFragment listFragment;
     private MainActivity main;
+    private boolean timerListEmpty;
 
-    public PagerAdapter(FragmentManager fm, MainActivity main) {
+    public PagerAdapter(FragmentManager fm, MainActivity main, boolean timerListEmpty) {
         super(fm);
         this.main = main;
+        this.timerListEmpty = timerListEmpty;
     }
 
     @Override
     public Fragment getItem(int position) {
+        if (timerListEmpty){
+            return EmptyListFragment.newInstance();
+        }
         if (position == LIST){
             return listFragment.newInstance(main);
         } else if (position == SETTINGS){
             return settingsFragment.newInstance();
         }
         return null;
+
     }
 
     @Override
     public int getCount() {
+        if (timerListEmpty){
+            return 1;
+        }
         return 2;
     }
 }
