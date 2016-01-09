@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 import org.json.JSONException;
 
-import no.lqasse.timeforcoffee.Models.TimerSet;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 import no.lqasse.timeforcoffee.R;
 import no.lqasse.timeforcoffee.TimerActivity;
 import no.lqasse.timeforcoffee.TimerListAdapter;
@@ -60,6 +60,7 @@ public class ListFragment extends android.support.v4.app.Fragment {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
                         TimerSet selectedTimer = main.getTimers().get(position);
                         try {
                             Intent i = new Intent(main, TimerActivity.class);

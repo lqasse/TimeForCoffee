@@ -13,7 +13,7 @@ import java.util.Collections;
 
 import no.lqasse.timeforcoffee.DataStorageManager;
 import no.lqasse.timeforcoffee.DatamapListenerService;
-import no.lqasse.timeforcoffee.Models.TimerSet;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 import no.lqasse.timeforcoffee.R;
 
 public class MainActivity extends FragmentActivity implements DataStorageManager.Observer {

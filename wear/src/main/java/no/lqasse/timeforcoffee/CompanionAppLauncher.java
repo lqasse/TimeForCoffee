@@ -19,7 +19,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import no.lqasse.timeforcoffee.Models.TimerSet;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 
 /**
  * Created by lassedrevland on 05.05.15.

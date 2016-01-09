@@ -20,8 +20,8 @@ import android.widget.TextView;
 import org.json.JSONException;
 
 import no.lqasse.timeforcoffee.Main.CanvasManager;
-import no.lqasse.timeforcoffee.Models.Preferences;
-import no.lqasse.timeforcoffee.Models.TimerSet;
+import no.lqasse.timeforcoffee.wear_Models.Preferences;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 
 /**
  * Created by lassedrevland on 06.05.15.

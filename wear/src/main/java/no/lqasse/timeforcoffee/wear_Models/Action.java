@@ -1,4 +1,4 @@
-package no.lqasse.timeforcoffee.models;
+package no.lqasse.timeforcoffee.wear_Models;
 
 import org.json.JSONArray;
 import org.json.JSONException;

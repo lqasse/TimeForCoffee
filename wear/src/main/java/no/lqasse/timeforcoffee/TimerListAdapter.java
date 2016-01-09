@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import no.lqasse.timeforcoffee.Models.TimerSet;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 
 /**
  * Created by lassedrevland on 04.05.15.

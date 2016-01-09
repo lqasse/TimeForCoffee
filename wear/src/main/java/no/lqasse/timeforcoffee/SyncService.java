@@ -7,8 +7,8 @@ import android.os.IBinder;
 import android.util.Log;
 
 import java.util.ArrayList;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 
-import no.lqasse.timeforcoffee.Models.TimerSet;
 
 /**
  * Created by lassedrevland on 07.05.15.

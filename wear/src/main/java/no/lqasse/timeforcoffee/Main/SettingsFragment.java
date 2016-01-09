@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
-import no.lqasse.timeforcoffee.Models.Preferences;
+import no.lqasse.timeforcoffee.wear_Models.Preferences;
 import no.lqasse.timeforcoffee.R;
 
 /**

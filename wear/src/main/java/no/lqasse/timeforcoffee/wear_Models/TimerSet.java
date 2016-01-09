@@ -1,4 +1,4 @@
-package no.lqasse.timeforcoffee.models;
+package no.lqasse.timeforcoffee.wear_Models;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,7 +107,7 @@ public class TimerSet implements Comparable<TimerSet>{
         return title;
     }
 
-    public String getDetailsSummary(){
+    public String getSummary(){
         return coffeeAmount +" / " + temperature +" / " + waterAmount;
     }
     public String getTemperature() {
@@ -165,7 +165,7 @@ public class TimerSet implements Comparable<TimerSet>{
 
     }
 
-    public String getAllActionsString(){
+    public String getAllActions(){
         String out = "";
         for (int i = 0;i<actions.size();i++){
             out += actions.get(i).getSummaryString() +", ";

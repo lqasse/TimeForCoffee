@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import no.lqasse.timeforcoffee.Main.MainActivity;
-import no.lqasse.timeforcoffee.Models.TimerSet;
+import no.lqasse.timeforcoffee.wear_Models.TimerSet;
 
 /**
  * Created by lassedrevland on 04.05.15.
